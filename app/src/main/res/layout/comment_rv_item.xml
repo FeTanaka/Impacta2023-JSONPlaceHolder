@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="comment"
+            type="br.com.impacta.curso.myapplication.data.models.comment.Comment" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:backgroundTint="@android:color/system_accent1_200">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
+
+            <TextView
+                android:id="@+id/email_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@{comment.email}"
+                app:layout_constraintBottom_toTopOf="@+id/body_comment_textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/body_comment_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@{comment.body}"
+                app:layout_constraintBottom_toTopOf="@+id/comment_id_imageview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_textView" />
+
+            <ImageView
+                android:id="@+id/comment_id_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/body_comment_textView"
+                app:srcCompat="@drawable/baseline_person_24" />
+
+            <TextView
+                android:id="@+id/comment_id_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{comment.postIdString}"
+                app:layout_constraintBottom_toBottomOf="@+id/comment_id_imageview"
+                app:layout_constraintStart_toEndOf="@+id/comment_id_imageview"
+                app:layout_constraintTop_toTopOf="@+id/comment_id_imageview" />
+
+            <ImageView
+                android:id="@+id/post_id_imageview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@+id/comment_id_imageview"
+                app:layout_constraintEnd_toStartOf="@+id/post_id_textview"
+                app:layout_constraintTop_toTopOf="@+id/comment_id_imageview"
+                app:srcCompat="@drawable/baseline_tag_24" />
+
+            <TextView
+                android:id="@+id/post_id_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{comment.postIdString}"
+                app:layout_constraintBottom_toBottomOf="@+id/post_id_imageview"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/post_id_imageview" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
